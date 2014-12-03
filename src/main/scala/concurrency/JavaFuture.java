@@ -22,7 +22,6 @@ public class JavaFuture {
                     e.printStackTrace();
                     this.interrupt();
                 }
-
             }
         };
 

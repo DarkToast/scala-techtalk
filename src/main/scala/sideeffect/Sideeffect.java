@@ -9,12 +9,12 @@ public class Sideeffect {
     private String foreignHello;
 
     public void printInOtherLanguage(List<String> list) {
-        List<String> sublist = list.subList(0, 2);
+        List<String> subList = list.subList(0, 2);
 
-        sublist.remove(0);
-        sublist.add(0, foreignHello);
-        sublist.add(".");
-        System.out.println(sublist);
+        subList.remove(0);
+        subList.add(0, foreignHello);
+        subList.add(".");
+        System.out.println(subList);
     }
 
     public static void main(String[] args) {
