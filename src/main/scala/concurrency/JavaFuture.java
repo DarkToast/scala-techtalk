@@ -9,7 +9,7 @@ public class JavaFuture {
     }
 
     public static void threads() {
-        final Msg msg = new Msg();
+        final ThreadSafeMessage threadSafeMessage = new ThreadSafeMessage();
 
         Thread thread = new Thread() {
             @Override
@@ -17,7 +17,7 @@ public class JavaFuture {
                 try {
                     Thread.sleep(4000);
                     // No return value. We MUST change someones state!
-                    msg.value = "I run in an own Thread objects thread, so I am!";
+                    threadSafeMessage.setValue("I run in an own Thread objects thread, so I am!");
                 } catch (InterruptedException e) {
                     e.printStackTrace();
                     this.interrupt();
@@ -31,7 +31,7 @@ public class JavaFuture {
             System.out.println("Let's get our Thread value");
             // Blocking!!
             thread.join();
-            String s = msg.value;
+            String s = threadSafeMessage.getValue();
             System.out.println("The Thread value is: '" + s + "'.");
         } catch (InterruptedException e) {
             e.printStackTrace();
@@ -66,7 +66,18 @@ public class JavaFuture {
         }
     }
 
-    public static class Msg {
-        public volatile String value = "";
+    // We have to define an mutable container for our thread.
+    // Cause we are in a concurrent environment, changes on the internal
+    // state must be synchronized.
+    public static class ThreadSafeMessage {
+        private String messageState = "";
+
+        public synchronized void setValue(final String value) {
+            messageState = value;
+        }
+
+        public synchronized String getValue() {
+            return messageState;
+        }
     }
 }
