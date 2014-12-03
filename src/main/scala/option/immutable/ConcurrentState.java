@@ -5,21 +5,16 @@ import java.util.*;
 
 
 public class ConcurrentState {
+    private final Map<Integer, String> state = new HashMap<>();
 
-    private volatile List<Integer> state = new ArrayList<>();
-
-    private final Object token = new Object();
-
-    public void addValue(int value) throws InterruptedException {
-        synchronized(token) {
-            List<Integer> tmpList = new ArrayList<>(state.size());
-            Collections.copy(state, tmpList); // May be very expensive!
-            tmpList.add(value);
-            state = tmpList;
-        }
+    public synchronized void addValue(int key, String value) {
+        state.put(key, value);
     }
 
-    public Integer getIndex(int key) {
-        return state.get(key);
+    public synchronized String getIndex(int key) {
+        if(state.containsKey(key)) {
+            return state.get(key);
+        }
+        return null;
     }
 }

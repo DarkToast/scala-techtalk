@@ -9,7 +9,7 @@ object ScalaConcurrentState extends App {
   }
 
   def addValue(key: Int, value: String) = map synchronized {
-    // Created a new map and does not effect the internal state.
+    // Creates a new map and does not effect the internal state.
     // Concurrent reading is still possible
     map = map + (key -> value)
   }
