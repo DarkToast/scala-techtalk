@@ -3,9 +3,45 @@ package option;
 import option.model.Contract;
 import option.model.Tariff;
 import option.model.User;
+import org.apache.commons.io.FileUtils;
+
+import java.io.File;
+import java.io.IOException;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 @SuppressWarnings("unused")
 public class JavaBillCalculator {
+
+    private Map<String, Integer> currentBill = new HashMap<>();
+
+    public JavaBillCalculator(List<Integer> someNumbers) {
+        for (int n: someNumbers) {
+            currentBill.put("Eintrag " + n, n);
+        }
+    }
+
+    public void bill(String entry, int number) {
+        Integer currentValue = currentBill.get(entry);
+        if (currentValue == null) {
+            currentValue = 0;
+        }
+        currentBill.put(entry, currentValue + number);
+    }
+
+
+
+
+    private File billingListFile = new File("/tmp/myBillingList");;
+
+    // Did this work??
+    public void bill(Integer number) throws IOException {
+        List<String> currentLines = FileUtils.readLines(billingListFile);
+        currentLines.add(number.toString());
+        FileUtils.writeLines(billingListFile, currentLines);
+    }
+
 
     // Oh no! What if any object is null!?
     public int calculateBillForUser(User user) {
@@ -29,7 +65,7 @@ public class JavaBillCalculator {
         return 0;
     }
 
-    // Let's make in more in a return early style.
+    // Let's do it more in a return early style.
     // Pfuh... Many ifs. Many braces. 12 lines of
     // code only because this stuff can be null!?
     public int calculateBillForUser_3(User user) {
@@ -49,4 +85,10 @@ public class JavaBillCalculator {
 
         return tariff.basicFee();
     }
+
+
+    // Idea: leakage of stateful object reference
+
+
+
 }

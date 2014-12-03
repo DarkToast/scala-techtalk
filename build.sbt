@@ -12,6 +12,8 @@ libraryDependencies += "org.scala-lang.modules" %% "scala-async" % "0.9.1"
 
 libraryDependencies += "com.typesafe.akka" %% "akka-actor" % "2.3.2"
 
+libraryDependencies += "commons-io" % "commons-io" % "2.4"
+
 libraryDependencies += "org.scalatest" %% "scalatest" % "2.1.3" % "test"
 
 libraryDependencies += "org.mockito" % "mockito-core" % "1.9.5" % "test"
