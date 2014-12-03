@@ -4,7 +4,7 @@ package option.immutable;
 import java.util.*;
 
 
-public class ConcurrentState {
+public class JavaConcurrentState {
     private final Map<Integer, String> state = new HashMap<>();
 
     public synchronized void addValue(int key, String value) {
