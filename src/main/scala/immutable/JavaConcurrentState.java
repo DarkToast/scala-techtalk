@@ -1,4 +1,4 @@
-package option.immutable;
+package immutable;
 
 
 import java.util.*;
