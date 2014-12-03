@@ -22,6 +22,8 @@ libraryDependencies += "org.specs2" %% "specs2" % "2.3.11" % "test"
 
 libraryDependencies += "org.scalacheck" %% "scalacheck" % "1.11.3" % "test"
 
+libraryDependencies += "javax.inject" % "javax.inject" % "1"
+
 resolvers ++= Seq("snapshots" at "http://oss.sonatype.org/content/repositories/snapshots",
                   "releases"  at "http://oss.sonatype.org/content/repositories/releases")
 

@@ -11,6 +11,9 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import java.util.ArrayList;
+import java.util.List;
+
 @SuppressWarnings("unused")
 public class JavaBillCalculator {
 
@@ -30,9 +33,6 @@ public class JavaBillCalculator {
         currentBill.put(entry, currentValue + number);
     }
 
-
-
-
     private File billingListFile = new File("/tmp/myBillingList");;
 
     // Did this work??
@@ -41,7 +41,6 @@ public class JavaBillCalculator {
         currentLines.add(number.toString());
         FileUtils.writeLines(billingListFile, currentLines);
     }
-
 
     // Oh no! What if any object is null!?
     public int calculateBillForUser(User user) {
@@ -88,7 +87,4 @@ public class JavaBillCalculator {
 
 
     // Idea: leakage of stateful object reference
-
-
-
 }
