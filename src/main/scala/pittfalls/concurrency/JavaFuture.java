@@ -1,4 +1,4 @@
-package concurrency;
+package pittfalls.concurrency;
 
 import java.util.concurrent.*;
 

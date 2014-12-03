@@ -1,4 +1,4 @@
-package immutable;
+package pittfalls.immutable;
 
 
 import java.util.*;

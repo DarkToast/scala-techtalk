@@ -1,4 +1,4 @@
-package sideeffect;
+package pittfalls.sideeffect;
 
 import javax.inject.Inject;
 import java.util.ArrayList;

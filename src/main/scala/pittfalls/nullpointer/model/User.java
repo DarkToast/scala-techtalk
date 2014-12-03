@@ -1,4 +1,4 @@
-package option.model;
+package pittfalls.nullpointer.model;
 
 public class User {
     private final Contract contract;
