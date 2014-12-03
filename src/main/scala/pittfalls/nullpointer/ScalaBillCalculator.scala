@@ -1,6 +1,6 @@
 package option
 
-import option.model.User
+import pittfalls.nullpointer.model.User
 
 object ScalaBillCalculator {
 
