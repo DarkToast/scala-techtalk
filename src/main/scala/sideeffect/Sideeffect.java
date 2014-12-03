@@ -8,7 +8,7 @@ public class Sideeffect {
     @Inject
     private String foreignHello;
 
-    public void printWithOtherLanguage(List<String> list) {
+    public void printInOtherLanguage(List<String> list) {
         List<String> sublist = list.subList(0, 2);
 
         sublist.remove(0);
@@ -25,7 +25,7 @@ public class Sideeffect {
         list.add("Welt");
         list.add("!");
 
-        sideeffect.printWithOtherLanguage(list);
+        sideeffect.printInOtherLanguage(list);
         System.out.println(list);
     }
 }
