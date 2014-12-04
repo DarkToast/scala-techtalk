@@ -1,7 +1,6 @@
 package languageProperties
 
 import org.scalatest.FunSuite
-import java.util
 
 class ObjectsAndMethods extends FunSuite {
 
