@@ -3,6 +3,7 @@ package languageProperties
 import org.scalatest.FunSuite
 
 class Functions extends FunSuite {
+
   test("Functions are first class citizens") {
     val add: (Int, Int) => Int = (x: Int, y: Int) => x + y
     val add2 = add

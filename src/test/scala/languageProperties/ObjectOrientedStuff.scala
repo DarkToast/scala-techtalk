@@ -4,9 +4,10 @@ package languageProperties
 import org.scalatest.FunSuite
 
 class ObjectOrientedStuff extends FunSuite {
-  test("Scala knows normal classes. Wen can use them as java classes. We only have a little bit other syntax") {
 
-    // We define in the first line our main constructor
+  test("Scala knows normal classes. Wen can use them as java classes. Only syntax is a little different") {
+
+    // We define our main constructor in the first line
     // The vals are public.
     class Rational(val numer: Int, val denom: Int) {
 
