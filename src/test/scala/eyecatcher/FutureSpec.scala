@@ -28,19 +28,23 @@ class FutureSpec extends FunSuite {
     assert(  result == 10*11/2  )
   }
 
+
   test("We add a handler to our future for non blocking result handling.") {
-    def addAsynchronous(x: Int, y: Int): Future[Int] = {
+    def divideAsynchronous(x: Int, y: Int): Future[Int] = {
       Future {
         println("Future startet..")
         Thread.sleep(2000)
         println("Future ended")
-        x + y
+        x / y
       }
     }
 
-    val f = addAsynchronous(10, 15)
+    val f = divideAsynchronous(10, 15)
     f.onSuccess {
       case result: Int => assert( result == 25 )
+    }
+    f.onFailure {
+      case exception: Exception => println(s"An exception occured: ${exception.getMessage}")
     }
 
     // An await.result awaits the result, but NOT the callback!
