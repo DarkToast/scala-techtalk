@@ -16,7 +16,7 @@ class ScalaJavaCombination extends FunSuite {
      */
     val exitListener = new WindowAdapter {
       override def windowClosing(event: WindowEvent) {
-        System.exit(0)
+        println("Closing window")
       }
     }
 
