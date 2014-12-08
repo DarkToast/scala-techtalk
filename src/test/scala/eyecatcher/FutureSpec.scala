@@ -39,9 +39,9 @@ class FutureSpec extends FunSuite {
       }
     }
 
-    val f = divideAsynchronous(10, 15)
+    val f = divideAsynchronous(10, 2)
     f.onSuccess {
-      case result: Int => assert( result == 25 )
+      case result: Int => assert( result == 5 )
     }
     f.onFailure {
       case exception: Exception => println(s"An exception occured: ${exception.getMessage}")
